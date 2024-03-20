@@ -7,7 +7,21 @@ spring:
       database: microservice
       url: mongodb://localhost:27017
 
-    jpa:
-      hibernate:
-        ddl-auto: update
-        show-sql: true
+  application:
+    name: RATING-SERVICE
+
+logging:
+  level:
+    org:
+      springframework: trace
+
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${eureka_url:http://localhost:8761/eureka}
